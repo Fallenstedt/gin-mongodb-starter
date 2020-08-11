@@ -1,20 +1,19 @@
 package server
 
 import (
-  "log"
-  "os"
   "github.com/gin-gonic/gin"
-  "github.com/joho/godotenv"
+   "github.com/fallenstedt/gin-example/src/config"
 )
 
 func Init() {
-  err := godotenv.Load()
+
+  con, err := config.Init()
+
   if err != nil {
-    log.Fatal("Error loading .env file")
+    panic("Failed to load config")
   }
 
-  mode := os.Getenv("MODE")
-  if mode == "release" {
+  if con.Mode == "release" {
     gin.SetMode(gin.ReleaseMode)
   }
   

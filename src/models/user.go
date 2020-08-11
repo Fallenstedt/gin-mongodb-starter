@@ -1,13 +1,5 @@
 package models
 
-import (
-	// "errors"
-	// "log"
-	// "time"
-	// "github.com/satori/go.uuid"
-	// "github.com/vsouza/go-gin-boilerplate/db"
-	// "github.com/vsouza/go-gin-boilerplate/forms"
-)
 
 type User struct {
 	ID        string `json:"user_id,omitempty"`
