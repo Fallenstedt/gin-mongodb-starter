@@ -6,17 +6,10 @@ import (
 )
 
 func Init() {
-
-  con, err := config.Init()
-
-  if err != nil {
-    panic("Failed to load config")
-  }
-
-  if con.Mode == "release" {
+  c := config.Get()
+  if c.Mode == "release" {
     gin.SetMode(gin.ReleaseMode)
   }
-  
 
   r := NewRouter()
   r.Run()
