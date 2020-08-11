@@ -19,7 +19,7 @@ func (u UserController) Retrieve(c *gin.Context) {
 			c.Abort()
 			return
 		}
-		c.JSON(http.StatusOK, gin.H{"message": "User founded!", "user": user})
+		c.JSON(http.StatusOK, gin.H{"message": "User found!", "user": user})
 		return
 	}
 	c.JSON(http.StatusBadRequest, gin.H{"message": "bad request"})
