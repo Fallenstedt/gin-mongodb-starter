@@ -31,6 +31,5 @@ func Get() *Config {
 		}
 		instance = &config
 	})
-	log.Printf(instance.DbName)
 	return instance
 }
