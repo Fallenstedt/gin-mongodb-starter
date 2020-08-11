@@ -10,8 +10,7 @@ install:
 	echo "Completed" 
 
 build:
-	# go build greet/greet_server/server.go
-	go build src/server.go
+	go build main.go
 
 test:
 	go test ./src/... -v

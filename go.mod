@@ -1,4 +1,4 @@
-module fallenstedt.com/gin-example
+module github.com/fallenstedt/gin-example
 
 go 1.14
 

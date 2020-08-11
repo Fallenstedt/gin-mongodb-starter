@@ -18,11 +18,11 @@ COPY . .
 RUN make build
 
 FROM alpine
-COPY --from=builder /app/server /app/
+COPY --from=builder /app/main /app/
 COPY --from=builder /app/.env .
 
 EXPOSE 8080
 
 # # Set the binary as the entrypoint of the container
 RUN source ./
-ENTRYPOINT ["/app/server"]
+ENTRYPOINT ["/app/main"]
