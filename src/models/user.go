@@ -19,6 +19,7 @@ type User struct {
 	UpdatedAt int64  `json:"updated_at,omitempty"`
 }
 
+
 func (h User) GetByID() (*User, error) {
 	db.Init()
 

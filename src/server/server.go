@@ -11,8 +11,12 @@ func Init() {
   if c.Mode == "release" {
     gin.SetMode(gin.ReleaseMode)
   }
-
-  log.Print("   .\n  .\n . .\n  ...\n\\~~~~~/\n \\   /\n  \\ /\n   V\n   |\n   |\n  ---\n")
+  printIntro()
   r := NewRouter()
   r.Run()
+}
+
+func printIntro() {
+  log.Print("Welcome to a basic Gin example")
+  log.Print("   \n  .\n  .\n . .\n  ...\n\\~~~~~/\n \\   /\n  \\ /\n   V\n   |\n   |\n  ---\n")
 }
