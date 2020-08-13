@@ -1,6 +1,6 @@
 
 VERSION         :=      $(shell cat ./VERSION)
-IMAGE_NAME      :=      fallenstedt/test-grpc
+IMAGE_NAME      :=      fallenstedt/gin-mongodb-starter
 
 all: install
 
@@ -16,7 +16,7 @@ test:
 	go test ./src/... -v
 
 image:
-	docker build -t fallenstedt/gin-example .
+	docker build -t $(IMAGE_NAME):v$(VERSION) .
 
 release:
 	git tag -a $(VERSION) -m "Release" || true
