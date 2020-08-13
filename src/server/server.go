@@ -11,9 +11,16 @@ func Init() {
   if c.Mode == "release" {
     gin.SetMode(gin.ReleaseMode)
   }
+
   printIntro()
+
   r := NewRouter()
-  r.Run()
+  err := r.Run()
+
+  if err != nil {
+    log.Fatal(err)
+  }
+
 }
 
 func printIntro() {
