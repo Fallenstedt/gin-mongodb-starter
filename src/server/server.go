@@ -1,24 +1,29 @@
 package server
 
 import (
-  "log"
-  "os"
   "github.com/gin-gonic/gin"
-  "github.com/joho/godotenv"
+   "github.com/fallenstedt/gin-example/src/config"
+  "log"
 )
 
 func Init() {
-  err := godotenv.Load()
-  if err != nil {
-    log.Fatal("Error loading .env file")
-  }
-
-  mode := os.Getenv("MODE")
-  if mode == "release" {
+  c := config.Get()
+  if c.Mode == "release" {
     gin.SetMode(gin.ReleaseMode)
   }
-  
+
+  printIntro()
 
   r := NewRouter()
-  r.Run()
+  err := r.Run()
+
+  if err != nil {
+    log.Fatal(err)
+  }
+
+}
+
+func printIntro() {
+  log.Print("Welcome to a basic Gin example")
+  log.Print("   \n  .\n  .\n . .\n  ...\n\\~~~~~/\n \\   /\n  \\ /\n   V\n   |\n   |\n  ---\n")
 }
