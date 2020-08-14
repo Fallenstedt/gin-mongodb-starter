@@ -20,6 +20,7 @@ RUN make build
 FROM alpine
 COPY --from=builder /app/main /app/
 COPY --from=builder /app/.env .
+RUN apk add --no-cache ca-certificates
 
 EXPOSE 8080
 
