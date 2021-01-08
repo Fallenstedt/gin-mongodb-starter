@@ -5,12 +5,22 @@ VERSION         		:= $(shell cat ./VERSION)
 PROJECT_PREFIX			:= fallenstedt
 PROJECT_NAME			:= gin-mongodb-starter
 
+# Can be development, production, test
+ENV						:= $(ENV)
+
 all: install
 
 install:
 	echo "Installing go modules..." && \
 	go mod download && \
-	echo "Completed" 
+	echo "Completed"
+
+set:
+	clear && \
+	echo "Setting environment to $(ENV)..." && \
+	ln -sf .env.$(ENV) .env && \
+	echo "done"
+
 
 build:
 	go build main.go
